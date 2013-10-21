@@ -6,7 +6,7 @@
 :oauth_url: 'https://oauth.vk.com/authorize'
 :oauth_params:
   :client_id: 'your_application_id'
-  :scope: friends,video,offline
+  :scope: friends,video,messages,offline
   :redirect_uri: https://oauth.vk.com/blank.html
   :display: popup
   :v: '5.2'

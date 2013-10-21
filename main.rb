@@ -6,7 +6,6 @@ if Token.empty?
   Token.create('password')
 end
 
-online_ids = vk.friends_getOnline().join(',')
-vk.users_get(:user_ids => online_ids).each do |user|
-  puts user.values.join(" ")
+vk.users(1,2,3,4).each do |user|
+  puts user
 end

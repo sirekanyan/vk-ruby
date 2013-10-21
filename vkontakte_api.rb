@@ -3,7 +3,7 @@ require 'uri'
 require_relative 'http'
 require_relative 'token'
 
-class Vkontakte
+class VkontakteAPI
   def initialize
     @api_url = Settings.get[:api_url] + '/'
   end
@@ -13,6 +13,7 @@ class Vkontakte
   end
 
   def prepare(method, params = {})
+    sleep 0.5
     uri = URI(@api_url + method)
     params.merge!({:access_token => Token.get})
     uri.query = URI.encode_www_form(params)

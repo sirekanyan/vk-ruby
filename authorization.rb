@@ -9,11 +9,14 @@ class Authorization
   end
 
   def self.prepare(pass)
-    uri = prepare_post(pass)
-    unless successful_redirect(uri)
+    page = prepare_post(pass)
+    unless successful_redirect(page.uri)
+      page.forms.first.click_button
+    end
+    unless successful_redirect(page.uri)
       raise @settings[:login_error]
     end
-    parse_token(uri)
+    parse_token(page.uri)
   end
 
   private
@@ -23,7 +26,7 @@ class Authorization
     form = page.forms.first
     form['email'] = @settings[:email]
     form['pass'] = pass
-    @agent.submit(form).uri
+    @agent.submit(form)
   end
 
   def self.parse_token(uri)
