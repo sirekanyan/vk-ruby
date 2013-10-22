@@ -10,12 +10,8 @@ class Authorization
 
   def self.prepare(pass)
     page = prepare_post(pass)
-    unless successful_redirect(page.uri)
-      page.forms.first.click_button
-    end
-    unless successful_redirect(page.uri)
-      raise @settings[:login_error]
-    end
+    page.forms.first.click_button unless redirected?(page.uri)
+    raise @settings[:login_error] unless redirected?(page.uri)
     parse_token(page.uri)
   end
 
@@ -36,12 +32,11 @@ class Authorization
 
   def self.oauth_uri
     uri = URI(@settings[:oauth_url])
-    uri.query = URI.encode_www_form(
-        @settings[:oauth_params])
+    uri.query = URI.encode_www_form(@settings[:oauth_params])
     return uri
   end
 
-  def self.successful_redirect(uri)
+  def self.redirected?(uri)
     redirect = @settings[:oauth_params][:redirect_uri]
     uri.to_s.start_with?(redirect)
   end
