@@ -5,7 +5,7 @@ class Token
   @filename = Settings.get[:token]
 
   def self.get
-    File.open(@filename, 'r').read
+    File.open(@filename, 'r').read.chomp
   end
 
   def self.empty?
@@ -19,9 +19,9 @@ class Token
   private
 
   def self.save(token)
-    File.open(@filename, 'w') { |file|
+    File.open(@filename, 'w') do |file|
       file.write(token)
-    }
+    end
     token
   end
 end
