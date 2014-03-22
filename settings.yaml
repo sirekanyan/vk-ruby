@@ -1,14 +1,14 @@
 ---
-:email: 'your@email.here'
-:token: './token.txt'
-:cert: './cacert.pem'
-:api_url: 'https://api.vk.com/method'
+:email: '2vs@bk.ru'
+:token: 'token.txt'
+:cert: 'cacert.pem'
 :oauth_url: 'https://oauth.vk.com/authorize'
 :oauth_params:
-  :client_id: 'your_application_id'
-  :scope: friends,video,messages,offline
+  :client_id: '478165'
+  :scope: friends,video,offline
   :redirect_uri: https://oauth.vk.com/blank.html
   :display: popup
   :v: '5.2'
   :response_type: token
-:login_error: 'Cannot redirect, check your email and password.'
+:login_error: 'Cannot login, check your email and password.'
+
