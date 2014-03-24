@@ -1,4 +1,5 @@
 require 'vk-api/vkontakte_api'
+require 'vk-auth/token'
 
 class Vkontakte
   def initialize(token)

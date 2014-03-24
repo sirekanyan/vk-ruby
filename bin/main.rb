@@ -1,4 +1,4 @@
-require 'vk-api'
+require 'vk-ruby'
 
 vk = Vkontakte.new('token.txt')
 
