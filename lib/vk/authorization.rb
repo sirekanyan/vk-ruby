@@ -1,5 +1,5 @@
 require 'mechanize'
-require 'vk-auth/settings'
+require 'vk/settings'
 
 class Authorization
   @settings = Settings.get

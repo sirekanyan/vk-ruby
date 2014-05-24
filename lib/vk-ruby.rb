@@ -1,9 +1,13 @@
 require 'vk-api/vkontakte_api'
-require 'vk-auth/token'
+require 'vk/token'
 
 class Vkontakte
-  def initialize(token)
-    @vk = VkontakteAPI.new(token)
+  def initialize
+    @vk = VkontakteAPI.new
+  end
+
+  def method_missing(name, *args)
+    @vk.method_missing(name, *args)
   end
 
   def online
@@ -20,6 +24,10 @@ class Vkontakte
 
   def users(*ids)
     @vk.users_get(:user_ids => ids.join(','))
+  end
+
+  def user(id)
+    users(id).first
   end
 
   def delete(*ids)

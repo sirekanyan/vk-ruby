@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = 'Simple wrapper for Vkontakte API'
   s.authors     = ['Vadik Sirekanyan']
   s.email       = 'vadik@sirekanyan.com'
-  s.files       = FileList['lib/vk-ruby.rb', 'lib/vk-api/*', 'lib/vk-auth/*']
+  s.files       = FileList['lib/vk-ruby.rb', 'lib/vk/*', 'lib/vk-api/*']
   s.homepage    = 'http://sirekanyan.com/gems/vk-ruby'
   s.license     = 'MIT'
 end

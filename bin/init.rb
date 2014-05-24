@@ -1,4 +1,4 @@
-require 'vk-ruby'
+require 'vk/token'
 require 'io/console'
 
 print 'Login: '
